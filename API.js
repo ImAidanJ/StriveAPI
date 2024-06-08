@@ -1,12 +1,12 @@
+require('dotenv').config();
 const express = require('express');
 const API = express();
-const PORT = 8080;
-
 const fs = require('fs');
 const path = require('path');
 
 API.use(express.json());
 
+// loads quotes from categories
 function loadQuotes(category){
     const filePath = path.join(__dirname, 'categories', `${category}.js`);
     if(fs.existsSync(filePath))
@@ -19,6 +19,7 @@ function loadQuotes(category){
     }
 }
 
+// finds a random quote from a category
 API.get('/quotes/:category', (req, res) => {
     const { category } = req.params;
     try
@@ -35,6 +36,7 @@ API.get('/quotes/:category', (req, res) => {
     }
 });
 
+// finds a quote by id from a category
 API.get('/quote/:category/:id', (req, res) => {
     const { category, id } = req.params;
     try
@@ -57,4 +59,6 @@ API.get('/quote/:category/:id', (req, res) => {
     }
 });
 
+// sends a console message when online
+const PORT = process.env.PORT || 3000;
 API.listen(PORT, () => console.log(`API is online on http://localhost:${PORT}`));

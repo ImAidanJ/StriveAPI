@@ -11,7 +11,7 @@ module.exports = [
     },
     {
         id: 3,
-        quote: 'Believe you can and you\'re halfway there.',
+        quote: `Believe you can and you're halfway there.`,
         author: 'Theodore Roosevelt'
     },
     {
@@ -36,7 +36,7 @@ module.exports = [
     },
     {
         id: 8,
-        quote: 'Don’t watch the clock; do what it does. Keep going.',
+        quote: `Don’t watch the clock; do what it does. Keep going.`,
         author: 'Sam Levenson'
     },
     {
