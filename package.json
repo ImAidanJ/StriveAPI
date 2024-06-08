@@ -1,0 +1,15 @@
+{
+  "name": "striveapi",
+  "version": "1.0.0",
+  "main": "API.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "keywords": [],
+  "author": "Strive Technology",
+  "license": "ISC",
+  "description": "Strive for Greatness",
+  "dependencies": {
+    "express": "^4.19.2"
+  }
+}
