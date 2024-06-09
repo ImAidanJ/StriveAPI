@@ -5,7 +5,7 @@
 //   ____) | |_| |  | |\ V /  __/    | |  __/ (__| | | | | | | (_) | | (_) | (_| | |_| |
 //  |_____/ \__|_|  |_| \_/ \___|    |_|\___|\___|_| |_|_| |_|\___/|_|\___/ \__, |\__, |
 //                                                                           __/ | __/ |
-//   
+//                                                                          |___/ |___/ 
 
 module.exports = [
     {
@@ -58,5 +58,4 @@ module.exports = [
         quote: 'Success is not the key to happiness. Happiness is the key to success. If you love what you are doing, you will be successful.',
         author: 'Albert Schweitzer'
     }
-    // Add more inspirational and success quotes here
 ];

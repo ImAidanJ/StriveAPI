@@ -5,30 +5,35 @@
 //   ____) | |_| |  | |\ V /  __/    | |  __/ (__| | | | | | | (_) | | (_) | (_| | |_| |
 //  |_____/ \__|_|  |_| \_/ \___|    |_|\___|\___|_| |_|_| |_|\___/|_|\___/ \__, |\__, |
 //                                                                           __/ | __/ |
-//
+//                                                                          |___/ |___/ 
 
-require('dotenv').config();
+// API Requirements
+
 const express = require('express');
 const API = express();
-const fs = require('fs');
-const path = require('path');
 
+const path = require('path');
+const fs = require('fs');
+
+require('dotenv').config();
+
+// API Middleware
 API.use(express.json());
 
-// loads quotes from categories
+// Loads Quotes
 function loadQuotes(category){
-    const filePath = path.join(__dirname, 'categories', `${category}.js`);
+    const filePath = path.join(__dirname, 'quotes', `${category}.js`);
     if(fs.existsSync(filePath))
     {
         return require(filePath);
     }
     else
     {
-        throw new Error('Category not found');
+        throw new Error(`${process.env.errorCat}`);
     }
 }
 
-// finds a random quote from a category
+// Finds Quotes at Random from Category
 API.get('/quotes/:category', (req, res) => {
     const { category } = req.params;
     try
@@ -45,8 +50,8 @@ API.get('/quotes/:category', (req, res) => {
     }
 });
 
-// finds a quote by id from a category
-API.get('/quote/:category/:id', (req, res) => {
+// Finds Quotes by ID from Category
+API.get('/quotes/:category/:id', (req, res) => {
     const { category, id } = req.params;
     try
     {
@@ -54,7 +59,7 @@ API.get('/quote/:category/:id', (req, res) => {
         const quote = quotes.find(q => q.id === Number(id));
         if(!quote)
         {
-            res.status(404).send({ message: 'Quote not found' });
+            res.status(404).send(`${process.env.errorID}`);
         }
         else
         {
@@ -68,6 +73,6 @@ API.get('/quote/:category/:id', (req, res) => {
     }
 });
 
-// sends a console message when online
-const PORT = process.env.PORT || 3000;
+// Sends Console Message
+PORT = process.env.PORT;
 API.listen(PORT, () => console.log(`API is online on http://localhost:${PORT}`));
