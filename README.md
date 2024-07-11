@@ -29,3 +29,5 @@ This project is in its very early stages and has not been actively worked on for
 ## Note
 
 This API is still in development, and many features are subject to change. Contributions and suggestions are welcome!
+
+[![ko-fi](https://ko-fi.com/img/githubbutton_sm.svg)](https://ko-fi.com/S6S310DONO)
